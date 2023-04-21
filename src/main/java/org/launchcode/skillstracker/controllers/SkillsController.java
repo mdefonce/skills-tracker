@@ -20,10 +20,15 @@ public class SkillsController {
 
     @PostMapping("form-results")
 //    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
-    public String helloFormSubmit(@RequestParam String name, @RequestParam String language1, @RequestParam String language2, @RequestParam String language3) {
-        String faveList = SkillsController.createMessage(language1, language2, language3);
+    public String helloFormSubmit(@RequestParam String name, @RequestParam String firstFave, @RequestParam String secondFave, @RequestParam String thirdFave) {
+//        String faveList = SkillsController.createMessage(language1, language2, language3);
         return "<h1>" + name + "</h1>" +
-                faveList;
+                "<ol>" +
+                "<li>" + firstFave + "</li>" +
+                "<li>" + secondFave + "</li>" +
+                "<li>" + thirdFave + "</li>" +
+                "</ol>";
+//                faveList;
     }
 
     @GetMapping("form")
@@ -34,19 +39,19 @@ public class SkillsController {
                 "Name:<br>" +
                 "<input type = 'text' name = 'name' ><br>" +
                 "My favorite language:<br>" +
-                "<select name='language1'>" +
+                "<select name='firstFave'>" +
                 "    <option value='Java'>Java</option>" +
                 "    <option value='JavaScript'>JavaScript</option>" +
                 "    <option value='Python'>Python</option>" +
                 "</select><br>" +
                 "My second favorite language:<br>" +
-                "<select name='language2'>" +
+                "<select name='secondFave'>" +
                 "    <option value='Java'>Java</option>" +
                 "    <option value='JavaScript'>JavaScript</option>" +
                 "    <option value='Python'>Python</option>" +
                 "</select><br>" +
                 "My third favorite language:<br>" +
-                "<select name='language3'>" +
+                "<select name='thirdFave'>" +
                 "    <option value='Java'>Java</option>" +
                 "    <option value='JavaScript'>JavaScript</option>" +
                 "    <option value='Python'>Python</option>" +
